@@ -9,9 +9,9 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4          # Обновил до v4
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5      # Обновил до v5
       with:
         python-version: '3.9'
     - name: Install deps
@@ -21,7 +21,7 @@ jobs:
     - name: Build
       run: pyinstaller --onefile --windowed --name "Messenger" main.py
     - name: Upload
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4   # !!! ГЛАВНОЕ: обновил до v4
       with:
         name: Messenger-EXE
         path: dist/Messenger.exe
